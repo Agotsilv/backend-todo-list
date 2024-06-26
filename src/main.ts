@@ -11,6 +11,7 @@ async function bootstrap() {
     .setDescription('Documentação da api todo-list para fim de estudos')
     .setVersion('1.0')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
