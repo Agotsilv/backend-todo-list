@@ -1,6 +1,8 @@
 import {
   BadRequestException,
   Body,
+  HttpException,
+  HttpStatus,
   Injectable,
   NotFoundException,
   ValidationPipe,
@@ -25,8 +27,9 @@ export class UserService {
     );
 
     if (user) {
-      throw new BadRequestException(
+      throw new HttpException(
         'Desculpe, este endereço de e-mail já está cadastrado em nosso sistema. Por favor, utilize outro endereço de e-mail para se cadastrar!',
+        HttpStatus.BAD_REQUEST,
       );
     }
 
