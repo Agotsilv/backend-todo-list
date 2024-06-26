@@ -31,6 +31,12 @@ export class UserService {
       );
     }
 
+    if (createUserDto.password.length < 6) {
+      throw new BadRequestException(
+        'A senha não pode ter menos que 6 caracteres.',
+      );
+    }
+
     const saltRandom = 10;
     const passwordHash = await hash(createUserDto.password, saltRandom);
 
