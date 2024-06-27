@@ -6,12 +6,15 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { returnTasks } from './dto/return-tasks.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @ApiTags('Tasks')
 @Controller('task')
 export class TaskController {

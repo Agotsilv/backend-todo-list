@@ -23,7 +23,7 @@ export class AuthService {
     const isMatch = await compare(loginAuthDto.password, user.password);
 
     if (!user || !isMatch) {
-      throw new BadRequestException(' Email ou senha inválidos!');
+      throw new BadRequestException('Email ou senha inválidos!');
     }
 
     return {
